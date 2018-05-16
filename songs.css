@@ -1,0 +1,22 @@
+/* Make numeric footnote references. */
+:root {
+    counter-reset: footnoteCounter;
+}
+
+a.footnote-ref::before {
+    vertical-align: super;
+    font-size: smaller;
+    content: counter(footnoteCounter);
+    counter-increment: footnoteCounter;
+}
+
+/* Highlight the footnotes themselves when their references are clicked. */
+@keyframes highlight-footnote {
+    15% {background-color: LightYellow;}
+    75% {background-color: LightYellow;}
+}
+
+:target {
+    animation-name: highlight-footnote;
+    animation-duration: 8s;
+}
